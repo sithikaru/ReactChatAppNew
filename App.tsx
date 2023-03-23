@@ -19,9 +19,19 @@ import {
   TouchableOpacity,
   ImageBackground,
   FlatList,
+  Platform,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import { className } from "nativewind/types";
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import ImagePicker from 'react-native-image-picker';
 
+launchImageLibrary(options?, callback)
+
+// You can also use as a promise without 'callback':
+const result = await launchImageLibrary(mediaType:);
 const item = [
   {
     pic: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
@@ -281,6 +291,253 @@ function Welcome() {
   );
   return ui;
 }
+function LogIN() {
+  const ui = (
+    <SafeAreaView className="bg-black">
+      <ScrollView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View>
+      <StatusBar hidden={true} />
+      <View className="w-full flex h-full ">
+        <Image
+          source={require("./assets/men.png")}
+          className="min-w-full max-h-[40%] rounded-t-[60px]"
+        ></Image>
+        <View>
+          <View className="mx-[30px] mt-7 ">
+            
+            <View className="flex flex-row">
+              <Image
+                source={require("./assets/tik.png")}
+                className="w-6 h-6 mt-6"
+              />
+              <Text className="text-white font-semibold text-[16px] mt-6 ml-2">
+                Secure, private messaging
+              </Text>
+            </View>
+            
+            <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            >
+            <View className="bg-white rounded-full mt-5  py-2 mb-3 ">
+            <TextInput
+            placeholder="Phone"
+            keyboardAppearance="dark"
+            keyboardType="number-pad"
+            className="h-14 text-[20px] pl-16 pr-14"
+            placeholderTextColor={"#000000"}
+          ></TextInput>
+          <View className="  h-12 w-12  absolute rounded-full  items-center justify-center bottom-3 left-2">
+            <Image className="h-8 w-8" source={require("./assets/phone.png")} />
+          </View>
+            </View>
+            <View className="bg-white rounded-full  py-2 mb-3 ">
+            <TextInput
+            keyboardAppearance="dark"
+            keyboardType="default"
+            placeholder="Password"
+            className="h-14 text-[20px] pl-16 pr-14"
+            placeholderTextColor={"#000000"}
+            secureTextEntry={true}
+          ></TextInput>
+          <View className="  h-12 w-12  absolute rounded-full  items-center justify-center bottom-3 left-2">
+            <Image className="h-8 w-8" source={require("./assets/password.png")} />
+          </View>
+            </View>
+            <View className="flex flex-row mx-auto">
+            <Text className="text-white font-semibold text-[16px] text-center mt-2">
+            Do not have a account? 
+              </Text>
+              <TouchableOpacity><Text className="text-blue-400 mt-2 font-semibold text-[16px] text-center justify-center align-middle"> Signup!</Text></TouchableOpacity>
+              </View>
+              </KeyboardAvoidingView>
+              
+          </View>
+          <View className="min-h-[5%]"></View>
+          <View className="justify-center">
+            <TouchableOpacity className="bg-white mx-auto mt-auto h-16 w-[80%] bottom-0 rounded-full align-middle justify-center">
+                <Text className="text-black font-bold text-[16px] text-center">Login</Text>
+            </TouchableOpacity >
+          </View>
+        </View>
+        
+      </View>
+      </View>
+      </TouchableWithoutFeedback>
+      </ScrollView>
+    </SafeAreaView>
+  );
+  return ui;
+}
+
+function SignUP() {
+  const ui = (
+    <SafeAreaView className="bg-black">
+      <ScrollView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View>
+      <StatusBar hidden={true} />
+      <View className="w-full flex h-full ">
+        <Image
+          source={require("./assets/men.png")}
+          className="min-w-full max-h-[40%] rounded-t-[60px]"
+        ></Image>
+        
+        <View>
+          <View className="mx-[30px] mt-7 ">
+            
+            <View className="flex flex-row">
+              <Image
+                source={require("./assets/tik.png")}
+                className="w-6 h-6 mt-6"
+              />
+              <Text className="text-white font-semibold text-[16px] mt-6 ml-2">
+                Secure, private messaging
+              </Text>
+            </View>
+            
+            <View className="bg-white rounded-full mt-5  py-2 mb-3 ">
+            <TextInput
+            placeholder="Phone"
+            keyboardAppearance="dark"
+            keyboardType="number-pad"
+            className="h-14 text-[20px] pl-16 pr-14"
+            placeholderTextColor={"#000000"}
+          ></TextInput>
+          <View className="  h-12 w-12  absolute rounded-full  items-center justify-center bottom-3 left-2">
+            <Image className="h-8 w-8" source={require("./assets/phone.png")} />
+          </View>
+            </View>
+            <View className="bg-white rounded-full  py-2 mb-3 ">
+            <TextInput
+            keyboardAppearance="dark"
+            keyboardType="default"
+            placeholder="Password"
+            className="h-14 text-[20px] pl-16 pr-14"
+            placeholderTextColor={"#000000"}
+            secureTextEntry={true}
+          ></TextInput>
+          <View className="  h-12 w-12  absolute rounded-full  items-center justify-center bottom-3 left-2">
+            <Image className="h-8 w-8" source={require("./assets/password.png")} />
+          </View>
+            </View>
+            <View className="bg-white rounded-full  py-2 mb-3 ">
+            <TextInput
+            keyboardAppearance="dark"
+            keyboardType="default"
+            placeholder="Re-type Password"
+            className="h-14 text-[20px] pl-16 pr-14"
+            placeholderTextColor={"#000000"}
+            secureTextEntry={true}
+          ></TextInput>
+          <View className="  h-12 w-12  absolute rounded-full  items-center justify-center bottom-3 left-2">
+            <Image className="h-8 w-8" source={require("./assets/password.png")} />
+          </View>
+            </View>
+            <View className="flex flex-row mx-auto">
+            <Text className="text-white font-semibold text-[16px] text-center mt-2">
+            Have a account? 
+              </Text>
+              <TouchableOpacity><Text className="text-blue-400 mt-2 font-semibold text-[16px] text-center justify-center align-middle"> Login!</Text></TouchableOpacity>
+              </View>
+              
+          </View>
+          <View className="min-h-[5%]"></View>
+          <View className="justify-center">
+            <TouchableOpacity className="bg-white mx-auto mt-auto h-16 w-[80%] bottom-0 rounded-full align-middle justify-center">
+                <Text className="text-black font-bold text-[16px] text-center">Signup</Text>
+            </TouchableOpacity >
+          </View>
+        </View>
+        
+        
+      </View>
+      </View>
+      </TouchableWithoutFeedback>
+      </ScrollView>
+    </SafeAreaView>
+  );
+  return ui;
+}
+
+function ProPIC() {
+  const ui = (
+    <SafeAreaView className="bg-black min-h-full">
+      <ScrollView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View>
+      <StatusBar hidden={true} />
+      <View className="w-full flex h-full ">
+        <Image
+          source={require("./assets/men.png")}
+          className="min-w-full max-h-[40%] rounded-t-[60px]"
+        ></Image>
+        
+        <View>
+          <View className="mx-[30px] mt-7 ">
+            
+            <View className="flex flex-row">
+              <Image
+                source={require("./assets/tik.png")}
+                className="w-6 h-6 mt-6"
+              />
+              <Text className="text-white font-semibold text-[16px] mt-6 ml-2">
+                Secure, private messaging
+              </Text>
+            </View>
+
+            <Text className="text-center text-white font-semibold text-lg mx-auto mt-[5%] mb-[2%]">Choose Image</Text>
+            <TouchableOpacity className="flex h-44 w-44 rounded-full bg-white mx-auto">
+              <Image source={require("./assets/propic.png")} className="w-40 h-40  my-auto mx-auto rounded-full"/>
+            </TouchableOpacity >
+            <ImagePicker />
+          <View className="justify-center">
+            <TouchableOpacity className="bg-white mx-auto mt-auto h-16 w-[80%] bottom-0 rounded-full align-middle justify-center">
+                <Text className="text-black font-bold text-[16px] text-center">Upload</Text>
+            </TouchableOpacity >
+          </View>
+        </View>
+        
+        
+      </View>
+      </View>
+      </View>
+      </TouchableWithoutFeedback>
+      </ScrollView>
+    </SafeAreaView>
+  );
+  return ui;
+}
+var options = {
+  title: 'Select Image',
+  customButtons: [
+    {
+      name: 'customOptionKey',
+      title: 'Choose Photo from Custom Option'
+    },
+  ],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
+ImagePicker.showImagePicker(options, response => {
+  console.log('Response = ', response);
+  if (response.didCancel) {
+    console.log('User cancelled image picker');
+  } else if (response.error) {
+    console.log('ImagePicker Error: ', response.error);
+  } else if (response.customButton) {
+    console.log(
+      'User tapped custom button: ',
+      response.customButton
+    );
+    alert(response.customButton);
+  } else {
+    setFilePath(response);
+  }
+});
+
 const styles = StyleSheet.create({
   sent: {
     backgroundColor: "#FF89335a",
@@ -299,4 +556,4 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
 });
-export default Welcome;
+export default ProPIC;
